@@ -5,7 +5,7 @@ import { createSubmission } from './graphql/mutations';
 function App() {
   const [formState, setFormState] = useState({ firstName: '', lastName: '' });
   const client = generateClient();
-  const envName = process.env.USER_BRANCH;
+  const envName = process.env.REACT_APP_USER_BRANCH_QA;
   console.log(envName)
 
   function setInput(key, value) {
