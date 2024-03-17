@@ -5,6 +5,8 @@ import { createSubmission } from './graphql/mutations';
 function App() {
   const [formState, setFormState] = useState({ firstName: '', lastName: '' });
   const client = generateClient();
+  const envName = process.env.USER_BRANCH;
+  console.log(envName)
 
   function setInput(key, value) {
     setFormState({ ...formState, [key]: value });
@@ -29,6 +31,7 @@ function App() {
   return (
     <div className="App">
       <h2>My Submission Form</h2>
+      <p>Environment: {envName}</p>
       <input
         onChange={event => setInput('firstName', event.target.value)}
         value={formState.firstName}
