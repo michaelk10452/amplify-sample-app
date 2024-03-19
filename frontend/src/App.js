@@ -288,7 +288,7 @@ function App() {
         <AppBar position="static">
           <Toolbar>
             {/* App name and environment name (if specified) displayed in the AppBar */}
-            <Typography variant="h6" sx={{ flexGrow: 1 }}>My App {envName}</Typography>
+            <Typography variant="h6" sx={{ flexGrow: 1 }}>My App ({envName})</Typography>
             {/* Navigation Links */}
             <Button color="inherit" component={Link} to="/">Home</Button>
             {isAuthenticated ? (
