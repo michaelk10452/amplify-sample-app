@@ -33,7 +33,8 @@
       "UnauthRoleName": "amplify-amplifysampleapp-qa-15852-unauthRole",
       "StackName": "amplify-amplifysampleapp-qa-15852",
       "StackId": "arn:aws:cloudformation:us-west-1:533267030279:stack/amplify-amplifysampleapp-qa-15852/eb1b5b00-e117-11ee-b423-02d66bae9ce3",
-      "AmplifyAppId": "dsmozdi65drm1"
+      "AmplifyAppId": "dsmozdi65drm1",
+      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-amplifysampleapp-qa-15852-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
     },
     "categories": {
       "hosting": {
@@ -44,6 +45,19 @@
       },
       "api": {
         "UserSubmissionsAPI": {}
+      },
+      "auth": {
+        "amplifysampleapp096722b0": {},
+        "userPoolGroups": {}
+      },
+      "function": {
+        "amplifysampleapp096722b0CustomMessage": {
+          "REDIRECTURL": "https://qa.dsmozdi65drm1.amplifyapp.com/",
+          "EMAILSUBJECT": "Confirmed",
+          "EMAILMESSAGE": "",
+          "deploymentBucketName": "amplify-amplifysampleapp-qa-15852-deployment",
+          "s3Key": "amplify-builds/amplifysampleapp096722b0CustomMessage-4a636145487173457459-build.zip"
+        }
       }
     }
   }
