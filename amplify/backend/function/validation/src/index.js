@@ -29,6 +29,11 @@ const dynamoDB = new AWS.DynamoDB.DocumentClient();
 const tableName = process.env.DYNAMODB_TABLE_NAME;
 
 exports.handler = async (event) => {
+
+    if (!event.arguments || !event.arguments.input || typeof event.arguments.input !== 'object') {
+        return { statusCode: 400, error: "Input is missing or incorrectly structured." };
+    }
+    
     // Extract submission details from the GraphQL input
     const { firstName, lastName } = event.arguments.input;
 
