@@ -32,10 +32,12 @@ exports.handler = async (event) => {
     // Extract submission details from the GraphQL input
     const { firstName, lastName } = event.arguments.input;
 
+
     if (firstName.toLowerCase() === 'michael') {
         // Construct an error response compatible with GraphQL
         return { statusCode: 400, error: "First name 'Michael' is not allowed." };
     }
+
 
     const item = {
         id: AWS.util.uuid.v4(),

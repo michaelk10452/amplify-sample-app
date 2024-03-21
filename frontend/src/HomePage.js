@@ -310,6 +310,8 @@ function HomePage() {
                 variables: { input: formState },
             });
 
+            console.log(response)
+
             // Check for server-side validation errors (e.g., name restrictions)
             if (response.errors) {
                 const message = response.errors[0].message;

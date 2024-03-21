@@ -61,7 +61,7 @@
         "validation": {
           "dynamodbTableName": "SubmissionTable",
           "deploymentBucketName": "amplify-amplifysampleapp-qa-15852-deployment",
-          "s3Key": "amplify-builds/validation-7454457657694b43482f-build.zip"
+          "s3Key": "amplify-builds/validation-62554a432f64596b6f49-build.zip"
         }
       }
     }
