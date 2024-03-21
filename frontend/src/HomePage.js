@@ -305,7 +305,7 @@ function HomePage() {
                 return;
             }
             // Executes the GraphQL mutation with the form data.
-            await client.graphql({
+            const response = await client.graphql({
                 query: createSubmission,
                 variables: { input: formState },
             });
@@ -316,7 +316,7 @@ function HomePage() {
                 alert(`Submission error: ${message}`);
                 return;
             }
-            
+
             alert('Submission successful!');
             // Resets form state after successful submission.
             setFormState({ firstName: '', lastName: '' });
