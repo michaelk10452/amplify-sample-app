@@ -309,6 +309,14 @@ function HomePage() {
                 query: createSubmission,
                 variables: { input: formState },
             });
+
+            // Check for server-side validation errors (e.g., name restrictions)
+            if (response.errors) {
+                const message = response.errors[0].message;
+                alert(`Submission error: ${message}`);
+                return;
+            }
+            
             alert('Submission successful!');
             // Resets form state after successful submission.
             setFormState({ firstName: '', lastName: '' });

@@ -74,6 +74,22 @@
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
+    },
+    "validation": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "GraphQLAPIIdOutput",
+            "GraphQLAPIEndpointOutput",
+            "GraphQLAPIKeyOutput"
+          ],
+          "category": "api",
+          "resourceName": "UserSubmissionsAPI"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
     }
   },
   "hosting": {
@@ -121,6 +137,30 @@
         {
           "category": "function",
           "resourceName": "amplifysampleapp096722b0CustomMessage"
+        }
+      ]
+    },
+    "AMPLIFY_function_validation_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "validation"
+        }
+      ]
+    },
+    "AMPLIFY_function_validation_dynamodbTableName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "validation"
+        }
+      ]
+    },
+    "AMPLIFY_function_validation_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "validation"
         }
       ]
     },

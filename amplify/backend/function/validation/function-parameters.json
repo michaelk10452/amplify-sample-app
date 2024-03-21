@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "api": {
+      "UserSubmissionsAPI": [
+        "Query"
+      ]
+    }
+  },
+  "lambdaLayers": [],
+  "environmentVariableList": [
+    {
+      "cloudFormationParameterName": "dynamodbTableName",
+      "environmentVariableName": "DYNAMODB_TABLE_NAME"
+    }
+  ]
+}
