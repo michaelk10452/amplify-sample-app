@@ -58,6 +58,10 @@ exports.handler = async (event) => {
         updatedAt: new Date().toISOString(),
     };
 
+    console.log('TABLE BELOW');
+
+    console.log(process.env.DYNAMODB_TABLE_NAME);
+
     console.log(item);
 
     const params = {

@@ -304,32 +304,79 @@ function HomePage() {
                 alert('Both first name and last name are required');
                 return;
             }
-
-            console.log(formState)
+    
+            console.log(formState);
             // Executes the GraphQL mutation with the form data.
             const response = await client.graphql({
                 query: createSubmission,
                 variables: { input: formState },
             });
-
-            console.log(response)
-
+    
+            console.log(response.errors[0].message);
+    
             // Check for server-side validation errors (e.g., name restrictions)
             if (response.errors) {
                 const message = response.errors[0].message;
-                alert(`Submission error: ${message}`);
+                console.log(message);
+    
+                // Check if the error is due to the first name being "Michael"
+                if (response.errors.some(error => error.errorType === "400")) {
+                    alert("Submission error: The first name 'Michael' is not allowed.");
+                } else {
+                    // Handle other errors
+                    alert(`Submission error: ${message}`);
+                }
+    
                 return;
             }
-
+    
             alert('Submission successful!');
             // Resets form state after successful submission.
             setFormState({ firstName: '', lastName: '' });
         } catch (err) {
-            alert('Error during submission');
+            alert(err.errors[0].message);
+            // alert('Error during submission');
             console.error('Error adding submission:', err);
         }
     }
 
+
+    //
+    // async function handleSubmit(event) {
+    //     event.preventDefault(); // Prevents the default form submit action.
+    //     try {
+    //         const { firstName, lastName } = formState;
+    //         // Validate that both fields are filled.
+    //         if (!firstName || !lastName) {
+    //             alert('Both first name and last name are required');
+    //             return;
+    //         }
+
+    //         console.log(formState)
+    //         // Executes the GraphQL mutation with the form data.
+    //         const response = await client.graphql({
+    //             query: createSubmission,
+    //             variables: { input: formState },
+    //         });
+
+    //         console.log(response)
+
+    //         // Check for server-side validation errors (e.g., name restrictions)
+    //         if (response.errors) {
+    //             const message = response.errors[0].message;
+    //             alert(`Submission error: ${message}`);
+    //             return;
+    //         }
+
+    //         alert('Submission successful!');
+    //         // Resets form state after successful submission.
+    //         setFormState({ firstName: '', lastName: '' });
+    //     } catch (err) {
+    //         alert('Error during submission');
+    //         console.error('Error adding submission:', err);
+    //     }
+    // }
+    ///////
     // Renders the form using Amplify UI components.
     return (
         <View as="form" onSubmit={handleSubmit} padding="20px" backgroundColor="var(--amplify-colors-background-primary)" maxWidth="500px" margin="0 auto">
