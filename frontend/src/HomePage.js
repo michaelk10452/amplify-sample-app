@@ -304,6 +304,8 @@ function HomePage() {
                 alert('Both first name and last name are required');
                 return;
             }
+
+            console.log(formState)
             // Executes the GraphQL mutation with the form data.
             const response = await client.graphql({
                 query: createSubmission,

@@ -33,15 +33,20 @@ exports.handler = async (event) => {
     if (!event.arguments || !event.arguments.input || typeof event.arguments.input !== 'object') {
         return { statusCode: 400, error: "Input is missing or incorrectly structured." };
     }
-    
+
     // Extract submission details from the GraphQL input
     const { firstName, lastName } = event.arguments.input;
+
+    console.log(firstName, lastName);
+    console.log(firstName.toLowerCase());
 
 
     if (firstName.toLowerCase() === 'michael') {
         // Construct an error response compatible with GraphQL
         return { statusCode: 400, error: "First name 'Michael' is not allowed." };
     }
+
+    console.log('PASSED');
 
 
     const item = {
@@ -52,6 +57,8 @@ exports.handler = async (event) => {
         createdAt: new Date().toISOString(),
         updatedAt: new Date().toISOString(),
     };
+
+    console.log(item);
 
     const params = {
         TableName: tableName,
